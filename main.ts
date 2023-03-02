@@ -948,8 +948,19 @@ scene.setBackgroundImage(img`
 story.showPlayerChoices("Click on the link", "Delete the email")
 if (story.checkLastAnswer("Click on the link")) {
     game.showLongText("No! you should never click on odd links ", DialogLayout.Bottom)
+    info.changeScoreBy(-5)
 } else {
     game.showLongText("Good job, never trust suspicious emails", DialogLayout.Bottom)
+    info.changeScoreBy(5)
+}
+game.showLongText("What is the better password?", DialogLayout.Bottom)
+story.showPlayerChoices("FirstName1234", "0Jk2C'{ba26")
+if (story.checkLastAnswer("FirstName1234")) {
+    game.showLongText("False, try to never make passwords that include guessable personal info", DialogLayout.Bottom)
+    info.changeScoreBy(-5)
+} else {
+    game.showLongText("Good, it contains no personal info! Password managers are a great way to keep secure passwords", DialogLayout.Bottom)
+    info.changeScoreBy(5)
 }
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
